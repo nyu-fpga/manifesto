@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYU FPGA Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0A0F1E;          /* deep silicon navy */
+      --ink: #E7E5F2;         /* body text */
+      --muted: #9E9AB8;       /* references */
+      --violet: #B28CFF;      /* links, list markers (light NYU violet for contrast on dark) */
+      --rule: rgba(178, 140, 255, 0.22);
+    }
+
+    html {
+      background: var(--bg);
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Interactive background: fixed behind the text, never blocks clicks */
+    #fabric {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 14vh clamp(16px, 5vw, 32px) 120px;
+    }
+
+    p {
+      margin: 0 0 1.15em;
+    }
+
+    strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--violet);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere; /* long URLs wrap instead of overflowing on phones */
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: #FFFFFF;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--violet);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    ul {
+      margin: 0 0 1.15em;
+      padding-left: 1.25em;
+    }
+
+    li {
+      margin-bottom: 0.4em;
+    }
+
+    li::marker {
+      color: var(--violet);
+    }
+
+    ol {
+      margin: 2.5em 0 0;
+      padding: 1.25em 0 0 1.25em;
+      border-top: 1px solid var(--rule);
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="fabric" aria-hidden="true"></canvas>
+
+  <main>
+
+    <p>Hi NYU,</p>
+
+    <p>I’m excited to announce the NYU FPGA Club.</p>
+
+    <p>For those that have no idea what an FPGA is…</p>
+
+    <p>Different computer chip architectures are suited to different purposes. CPUs and GPUs are very common for different types of number crunching. The latter, in particular, can perform a lot of simple linear algebra math for graphics processing. However, many other tasks, such as signal processing, require different architectures for high performance in their own domain. The chips in these domains are called Application Specific Integrated Circuits (ASICs). Field Programmable Gate Arrays or FPGAs are reconfigurable devices used to prototype what may eventually be hardwired into these ASICs. An ASIC, depending on the purpose, may also be called an Accelerator.</p>
+
+    <p><strong>There has never been a greater demand for custom chips!!</strong></p>
+
+    <p>Traditionally, custom chips have been used by the defense and aerospace industries for fast, energy-efficient signal processing. Sometimes FPGAs are used on their own, without ever being turned into an ASIC. High Frequency Trading firms, for example, use them to balance speed with the reconfigurability needed for ever-changing trading algorithms [1]. But custom chips have also found other use cases…</p>
+
+    <p>DeepSeek’s famous breakthroughs have been made possible by designing its algorithms around Nvidia chips with a hardware-aware approach. [2]</p>
+
+    <p>However, frontier models are increasingly closed source. [3] For many of these models, there’s only so much that third-party AI accelerator makers, such as Nvidia or Amazon, can design for without access to the closed-source model itself. Therefore, frontier labs have begun developing their own custom chips to get higher performance out of their proprietary models [4]. Although it means many techniques are proprietary, it also means a greater demand for custom chips. Chip design companies like Etched have popped up, with insane valuations as a testament to the extremely hot demand in this area. [5]</p>
+
+    <p>This growing demand has turned FPGA development into its own dedicated engineering role, which calls for a similarly dedicated club. In this club, we’ll</p>
+
+    <ul>
+      <li>explore the traditional use cases of FPGA development, such as those at HFT firms and in defense.</li>
+      <li>invite industry professionals for talks/mentoring.</li>
+      <li>focus on building an open-source repertoire for developing on FPGAs, opening up knowledge that is usually kept proprietary.</li>
+      <li>explore the novel use cases for FPGAs.</li>
+    </ul>
+
+    <p>This club is aimed at training its members to develop practical skills through professional-grade projects and industry collaborations.</p>
+
+    <p>First Meeting TBD. No prior hardware experience or coursework needed.</p>
+
+    <p>Sign up here to record your interest.</p>
+
+    <p>Abdullah Sarkar, Electrical Engineering Major</p>
+
+    <ol>
+      <li><a href="https://signalsandthreads.com/programmable-hardware/">https://signalsandthreads.com/programmable-hardware/</a></li>
+      <li><a href="https://arxiv.org/html/2505.09343v2">Insights into DeepSeek-V3: Scaling Challenges and Reflections on Hardware for AI Architectures</a></li>
+      <li><a href="https://x.com/kimmonismus/status/2110356884800577898">https://x.com/kimmonismus/status/2110356884800577898</a></li>
+      <li>Dylan Patel of SemiAnalysis in a podcast with Sequoia. <a href="https://youtu.be/f6D_aiy8qyU">https://youtu.be/f6D_aiy8qyU</a></li>
+      <li><a href="https://techcrunch.com/2026/08/18/etcheds-valuation-doubles-to-21b-in-a-month/">Etched on TechCrunch</a></li>
+    </ol>
+
+  </main>
+
+  <script>
+    /*
+      "FPGA fabric" background.
+      A grid of logic cells, each with fixed random routing to its right/lower neighbour.
+      - Moving the pointer lights up cells nearby and reveals their routing, with a fading trail.
+      - Clicking/tapping sends a ripple outward that re-routes the cells it passes ("reprogramming").
+      - Cells behind the text column are dimmed so the letter stays readable.
+    */
+    (() => {
+      const canvas = document.getElementById('fabric');
+      const ctx = canvas.getContext('2d');
+      const column = document.querySelector('main');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const GAP = 28;          // spacing between logic cells (CSS px)
+      const REACH = 170;       // pointer influence radius
+      const COLUMN_DIM = 0.3;  // strength of cells behind the text (0–1)
+      const RIPPLE_SPEED = 7;  // px per frame at 60fps
+      const RIPPLE_MAX = 620;  // how far a ripple travels
+      const RIPPLE_BAND = 26;  // thickness of the ripple ring
+
+      const IDLE = [120, 128, 168];
+      const LIT = [178, 140, 255];
+
+      let w = 0, h = 0, cols = 0, rows = 0;
+      let cells = [];
+      let ripples = [];
+      let rippleId = 0;
+      let dirty = true;
+      let last = performance.now();
+      const pointer = { x: -9999, y: -9999, active: false };
+
+      function build() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        cols = Math.ceil(w / GAP) + 1;
+        rows = Math.ceil(h / GAP) + 1;
+        const offX = (w - (cols - 1) * GAP) / 2;
+        const offY = (h - (rows - 1) * GAP) / 2;
+
+        cells = [];
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            cells.push({
+              c, r,
+              x: offX + c * GAP,
+              y: offY + r * GAP,
+              e: 0,                          // energy 0–1
+              right: Math.random() < 0.55,   // routed to right neighbour
+              down: Math.random() < 0.45,    // routed to lower neighbour
+              lastRipple: 0
+            });
+          }
+        }
+        dirty = true;
+      }
+
+      function update(dt) {
+        let active = false;
+
+        for (const rp of ripples) rp.r += RIPPLE_SPEED * dt;
+        ripples = ripples.filter(rp => rp.r < RIPPLE_MAX);
+
+        const rise = 1 - Math.pow(0.65, dt);
+        const decay = Math.pow(0.93, dt);
+
+        for (const cell of cells) {
+          let target = 0;
+
+          if (pointer.active) {
+            const dx = cell.x - pointer.x;
+            const dy = cell.y - pointer.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < REACH * REACH) {
+              const f = 1 - Math.sqrt(d2) / REACH;
+              target = f * f;
+            }
+          }
+
+          for (const rp of ripples) {
+            const d = Math.hypot(cell.x - rp.x, cell.y - rp.y);
+            const band = Math.abs(d - rp.r);
+            if (band < RIPPLE_BAND) {
+              const strength = (1 - band / RIPPLE_BAND) * (1 - rp.r / RIPPLE_MAX);
+              if (strength > target) target = strength;
+              if (cell.lastRipple !== rp.id && band < RIPPLE_BAND / 2) {
+                cell.lastRipple = rp.id;
+                cell.right = Math.random() < 0.55;
+                cell.down = Math.random() < 0.45;
+              }
+            }
+          }
+
+          if (reduceMotion) {
+            cell.e = target;
+          } else if (target > cell.e) {
+            cell.e += (target - cell.e) * rise;
+          } else {
+            cell.e *= decay;
+            if (cell.e < 0.004) cell.e = 0;
+          }
+
+          if (cell.e > 0) active = true;
+        }
+
+        return active || ripples.length > 0;
+      }
+
+      function draw() {
+        const col = column.getBoundingClientRect();
+        const dimAt = (x, y) =>
+          (x > col.left - 8 && x < col.right + 8 && y > col.top && y < col.bottom) ? COLUMN_DIM : 1;
+
+        ctx.clearRect(0, 0, w, h);
+
+        // soft NYU-violet halo around the pointer
+        if (pointer.active) {
+          const g = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, REACH * 1.4);
+          g.addColorStop(0, 'rgba(87, 6, 140, 0.28)');
+          g.addColorStop(1, 'rgba(87, 6, 140, 0)');
+          ctx.fillStyle = g;
+          ctx.fillRect(pointer.x - REACH * 1.4, pointer.y - REACH * 1.4, REACH * 2.8, REACH * 2.8);
+        }
+
+        // routing between lit cells
+        ctx.lineWidth = 1.25;
+        for (const cell of cells) {
+          if (cell.e < 0.05) continue;
+          const dim = dimAt(cell.x, cell.y);
+          if (cell.right && cell.c + 1 < cols) {
+            const n = cells[cell.r * cols + cell.c + 1];
+            const a = Math.min(cell.e, n.e) * dim * 0.85;
+            if (a > 0.03) {
+              ctx.strokeStyle = `rgba(${LIT[0]}, ${LIT[1]}, ${LIT[2]}, ${a})`;
+              ctx.beginPath();
+              ctx.moveTo(cell.x, cell.y);
+              ctx.lineTo(n.x, n.y);
+              ctx.stroke();
+            }
+          }
+          if (cell.down && cell.r + 1 < rows) {
+            const n = cells[(cell.r + 1) * cols + cell.c];
+            const a = Math.min(cell.e, n.e) * dim * 0.85;
+            if (a > 0.03) {
+              ctx.strokeStyle = `rgba(${LIT[0]}, ${LIT[1]}, ${LIT[2]}, ${a})`;
+              ctx.beginPath();
+              ctx.moveTo(cell.x, cell.y);
+              ctx.lineTo(n.x, n.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // logic cells
+        for (const cell of cells) {
+          const e = cell.e * dimAt(cell.x, cell.y);
+          const size = 2 + e * 5;
+          const r = Math.round(IDLE[0] + (LIT[0] - IDLE[0]) * e);
+          const g = Math.round(IDLE[1] + (LIT[1] - IDLE[1]) * e);
+          const b = Math.round(IDLE[2] + (LIT[2] - IDLE[2]) * e);
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${0.16 + e * 0.84})`;
+          ctx.fillRect(cell.x - size / 2, cell.y - size / 2, size, size);
+
+          if (e > 0.6) {
+            ctx.fillStyle = `rgba(255, 255, 255, ${(e - 0.6) * 2.5})`;
+            ctx.fillRect(cell.x - 0.75, cell.y - 0.75, 1.5, 1.5);
+          }
+        }
+      }
+
+      function frame(now) {
+        const dt = Math.min((now - last) / (1000 / 60), 3);
+        last = now;
+        const active = update(dt);
+        if (active || dirty || pointer.active) {
+          draw();
+          dirty = false;
+        }
+        requestAnimationFrame(frame);
+      }
+
+      function addRipple(x, y) {
+        if (reduceMotion) return;
+        ripples.push({ x, y, r: 0, id: ++rippleId });
+        if (ripples.length > 4) ripples.shift();
+      }
+
+      window.addEventListener('pointermove', (e) => {
+        pointer.x = e.clientX;
+        pointer.y = e.clientY;
+        pointer.active = true;
+      }, { passive: true });
+
+      window.addEventListener('pointerdown', (e) => {
+        pointer.x = e.clientX;
+        pointer.y = e.clientY;
+        pointer.active = true;
+        addRipple(e.clientX, e.clientY);
+      }, { passive: true });
+
+      const release = (e) => {
+        if (e.pointerType !== 'mouse') pointer.active = false;
+      };
+      window.addEventListener('pointerup', release);
+      window.addEventListener('pointercancel', release);
+
+      document.addEventListener('mouseout', (e) => {
+        if (!e.relatedTarget) pointer.active = false;
+      });
+      window.addEventListener('blur', () => { pointer.active = false; });
+      window.addEventListener('scroll', () => { dirty = true; }, { passive: true });
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(build, 120);
+      });
+
+      build();
+      // one intro ripple on load so visitors notice the background responds
+      addRipple(w / 2, h * 0.12);
+      requestAnimationFrame(frame);
+    })();
+  </script>
+
+</body>
+</html>
