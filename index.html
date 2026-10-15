@@ -90,6 +90,50 @@
       color: var(--violet);
     }
 
+    /* Toggleable "what is an FPGA" section */
+    details {
+      margin: 0 0 1.15em;
+    }
+
+    summary {
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+
+    summary::marker {
+      color: var(--violet);
+    }
+
+    summary::-webkit-details-marker {
+      color: var(--violet);
+    }
+
+    summary:hover {
+      color: #FFFFFF;
+    }
+
+    summary:focus-visible {
+      outline: 2px solid var(--violet);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    details > p {
+      margin: 0.75em 0 0;
+    }
+
+    /* Reference a marker like [1] jumps to */
+    ol li {
+      scroll-margin-top: 2rem;
+    }
+
+    ol li:target {
+      color: var(--ink);
+      background: rgba(178, 140, 255, 0.14);
+      box-shadow: 0 0 0 0.3em rgba(178, 140, 255, 0.14);
+      border-radius: 2px;
+    }
+
     ol {
       margin: 2.5em 0 0;
       padding: 1.25em 0 0 1.25em;
@@ -109,17 +153,18 @@
 
     <p>I’m excited to announce the NYU FPGA Club.</p>
 
-    <p>For those that have no idea what an FPGA is…</p>
-
-    <p>Different computer chip architectures are suited to different purposes. CPUs and GPUs are very common for different types of number crunching. The latter, in particular, can perform a lot of simple linear algebra math for graphics processing. However, many other tasks, such as signal processing, require different architectures for high performance in their own domain. The chips in these domains are called Application Specific Integrated Circuits (ASICs). Field Programmable Gate Arrays or FPGAs are reconfigurable devices used to prototype what may eventually be hardwired into these ASICs. An ASIC, depending on the purpose, may also be called an Accelerator.</p>
+    <details>
+      <summary>For those that have no idea what an FPGA is…</summary>
+      <p>Different computer chip architectures are suited to different purposes. CPUs and GPUs are very common for different types of number crunching. The latter, in particular, can perform a lot of simple linear algebra math for graphics processing. However, many other tasks, such as signal processing, require different architectures for high performance in their own domain. The chips in these domains are called Application Specific Integrated Circuits (ASICs). Field Programmable Gate Arrays or FPGAs are reconfigurable devices used to prototype what may eventually be hardwired into these ASICs. An ASIC, depending on the purpose, may also be called an Accelerator.</p>
+    </details>
 
     <p><strong>There has never been a greater demand for custom chips!!</strong></p>
 
-    <p>Traditionally, custom chips have been used by the defense and aerospace industries for fast, energy-efficient signal processing. Sometimes FPGAs are used on their own, without ever being turned into an ASIC. High Frequency Trading firms, for example, use them to balance speed with the reconfigurability needed for ever-changing trading algorithms [1]. But custom chips have also found other use cases…</p>
+    <p>Traditionally, custom chips have been used by the defense and aerospace industries for fast, energy-efficient signal processing. Sometimes FPGAs are used on their own, without ever being turned into an ASIC. High Frequency Trading firms, for example, use them to balance speed with the reconfigurability needed for ever-changing trading algorithms <a href="#ref-1">[1]</a>. But custom chips have also found other use cases…</p>
 
-    <p>DeepSeek’s famous breakthroughs have been made possible by designing its algorithms around Nvidia chips with a hardware-aware approach. [2]</p>
+    <p>DeepSeek’s famous breakthroughs have been made possible by designing its algorithms around Nvidia chips with a hardware-aware approach. <a href="#ref-2">[2]</a></p>
 
-    <p>However, frontier models are increasingly closed source. [3] For many of these models, there’s only so much that third-party AI accelerator makers, such as Nvidia or Amazon, can design for without access to the closed-source model itself. Therefore, frontier labs have begun developing their own custom chips to get higher performance out of their proprietary models [4]. Although it means many techniques are proprietary, it also means a greater demand for custom chips. Chip design companies like Etched have popped up, with insane valuations as a testament to the extremely hot demand in this area. [5]</p>
+    <p>However, frontier models are increasingly closed source. <a href="#ref-3">[3]</a> For many of these models, there’s only so much that third-party AI accelerator makers, such as Nvidia or Amazon, can design for without access to the closed-source model itself. Therefore, frontier labs have begun developing their own custom chips to get higher performance out of their proprietary models <a href="#ref-4">[4]</a>. Although it means many techniques are proprietary, it also means a greater demand for custom chips. Chip design companies like Etched have popped up, with insane valuations as a testament to the extremely hot demand in this area. <a href="#ref-5">[5]</a></p>
 
     <p>This growing demand has turned FPGA development into its own dedicated engineering role, which calls for a similarly dedicated club. In this club, we’ll</p>
 
@@ -139,11 +184,11 @@
     <p>Abdullah Sarkar, Electrical Engineering Major</p>
 
     <ol>
-      <li><a href="https://signalsandthreads.com/programmable-hardware/">https://signalsandthreads.com/programmable-hardware/</a></li>
-      <li><a href="https://arxiv.org/html/2505.09343v2">Insights into DeepSeek-V3: Scaling Challenges and Reflections on Hardware for AI Architectures</a></li>
-      <li><a href="https://x.com/kimmonismus/status/2110356884800577898">https://x.com/kimmonismus/status/2110356884800577898</a></li>
-      <li>Dylan Patel of SemiAnalysis in a podcast with Sequoia. <a href="https://youtu.be/f6D_aiy8qyU">https://youtu.be/f6D_aiy8qyU</a></li>
-      <li><a href="https://techcrunch.com/2026/08/18/etcheds-valuation-doubles-to-21b-in-a-month/">Etched on TechCrunch</a></li>
+      <li id="ref-1"><a href="https://signalsandthreads.com/programmable-hardware/">https://signalsandthreads.com/programmable-hardware/</a></li>
+      <li id="ref-2"><a href="https://arxiv.org/html/2505.09343v2">Insights into DeepSeek-V3: Scaling Challenges and Reflections on Hardware for AI Architectures</a></li>
+      <li id="ref-3"><a href="https://x.com/kimmonismus/status/2110356884800577898">https://x.com/kimmonismus/status/2110356884800577898</a></li>
+      <li id="ref-4">Dylan Patel of SemiAnalysis in a podcast with Sequoia. <a href="https://youtu.be/f6D_aiy8qyU">https://youtu.be/f6D_aiy8qyU</a></li>
+      <li id="ref-5"><a href="https://techcrunch.com/2026/08/18/etcheds-valuation-doubles-to-21b-in-a-month/">Etched on TechCrunch</a></li>
     </ol>
 
   </main>
