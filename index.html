@@ -142,45 +142,12 @@
       color: var(--muted);
     }
 
-    /* Sticky sign-up: a slim bar on narrow screens, a box in the right margin on wide ones */
-    html {
-      scroll-padding-top: 64px; /* keeps [1]–[5] jumps from landing under the bar */
-    }
-
-    .signup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      box-sizing: border-box; /* padding counts inside the 220px width */
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px clamp(16px, 5vw, 32px);
-      background: rgba(10, 15, 30, 0.85);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .signup-title {
-      color: #FFFFFF;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    .signup-note {
-      display: none;
-      margin: 0;
-      font-size: 0.875rem;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-
+    /* Sticky sign-up button, pinned to the top-right corner */
     .signup-button {
-      flex-shrink: 0;
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 2;
       padding: 8px 18px;
       border-radius: 3px;
       background: var(--violet);
@@ -188,8 +155,8 @@
       font-size: 0.9375rem;
       font-weight: 600;
       line-height: 1.2;
-      text-align: center;
       text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
       transition: background-color 0.15s ease;
     }
 
@@ -197,51 +164,14 @@
       background: #FFFFFF;
       color: var(--bg);
     }
-
-    /* Wide enough for a 220px box beside the 40rem text column without overlapping it */
-    @media (min-width: 1180px) {
-      html {
-        scroll-padding-top: 0;
-      }
-
-      .signup {
-        top: 24px;
-        right: 24px;
-        left: auto;
-        width: 220px;
-        display: block;
-        padding: 18px;
-        border: 1px solid rgba(178, 140, 255, 0.35);
-        border-radius: 4px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      }
-
-      .signup-title {
-        display: block;
-      }
-
-      .signup-note {
-        display: block;
-        margin-top: 6px;
-      }
-
-      .signup-button {
-        display: block;
-        margin-top: 14px;
-      }
-    }
   </style>
 </head>
 <body>
 
   <canvas id="fabric" aria-hidden="true"></canvas>
 
-  <aside class="signup" aria-label="Sign up for the NYU FPGA Club">
-    <span class="signup-title">NYU FPGA Club</span>
-    <p class="signup-note">First meeting TBD. No prior hardware experience needed.</p>
-    <!-- Replace # with your sign-up form link -->
-    <a class="signup-button" href="#">Sign up</a>
-  </aside>
+  <!-- Replace # with your sign-up form link -->
+  <a class="signup-button" href="#">Sign up</a>
 
   <main>
 
@@ -518,6 +448,9 @@
       requestAnimationFrame(frame);
     })();
   </script>
+
+  <script data-goatcounter="https://nyu-fpga.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
 
 </body>
 </html>
